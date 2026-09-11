@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #8620AD;
+  --brand-dark: #6b1a8a;
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --radius: 0.75rem;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; }
+body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #f8fafc; color: #111827; }
+button, input { font: inherit; }
+.header-brand { background: var(--brand); }
+.header-brand:hover { background: var(--brand-dark); }
