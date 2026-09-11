@@ -13,10 +13,10 @@ Uma plataforma completa para acompanhar futebol feminino, com tabelas, jogos, no
 O projeto inclui:
 
 - 📊 **Tabelas de Classificação** - Acompanhe a posição dos times
-- 🎮 **Jogos ao Vivo** - Visualize partidas e resultados
-- 📰 **Notícias** - Notícias estáticas sobre futebol feminino
-- 🏆 **Fantasy League** - Sistema de apostas e rankings
-- 🔐 **Autenticação** - Sistema completo com tokens e validação
+- 🎮 **Jogos e Resultados** - Visualize partidas e resultados
+- 📰 **Notícias** - Notícias sobre futebol feminino
+- 🏆 **Fantasy League** - Sistema de Fantasy e rankings
+- 🔐 **Autenticação** - Sistema de login e validação de sessão
 
 ## 🚀 Tecnologias
 
@@ -99,7 +99,7 @@ http://localhost:5173
 - **Senha:** `123456`
 - **Role:** user
 
-> ⚠️ **Nota:** Em produção, as senhas são protegidas com hash bcrypt.
+> ⚠️ **Nota:** As senhas são armazenadas utilizando hash bcrypt. As credenciais acima são destinadas ao ambiente de desenvolvimento.
 
 ## 📁 Estrutura do Projeto
 
@@ -119,14 +119,14 @@ Responsável pela API, autenticação, banco de dados JSON e rotas de notícias.
 
 - `POST /api/auth/login` - Login
 - `POST /api/auth/logout` - Logout
-- `GET /api/auth/verify` - Verificar token
+- `GET /api/auth/verify` - Verificar sessão
 
 ### Dados
 
 - `GET /api/games` - Lista de jogos
 - `GET /api/teams` - Lista de times
 - `GET /api/ranking` - Tabela de classificação
-- `GET /api/news/feminine-football` - Notícias estáticas
+- `GET /api/news/feminine-football` - Notícias
 
 ## 🧪 Desenvolvimento
 
@@ -168,15 +168,15 @@ O sistema implementa mecanismos de segurança para autenticação e proteção d
 
 - Validação de credenciais no servidor
 - Senhas protegidas com **Bcrypt**
-- Tokens únicos e seguros
-- Validação de token
-- Expiração automática de sessão
+- Tokens de sessão gerados no login
+- Validação do token nas rotas protegidas
+- Expiração automática de sessão após 24 horas
 - Logout com remoção da sessão
 
 ### Proteções Implementadas
 
 - **Helmet** - Headers HTTP de segurança
-- **Rate Limiting** - Limitação de tentativas de login
+- **Rate Limiting** - Limitação de tentativas de login e requisições à API
 - **CORS** - Controle de origens autorizadas
 - **Bcrypt** - Senhas armazenadas utilizando hash
 
